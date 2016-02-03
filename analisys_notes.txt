@@ -1,0 +1,29 @@
+data circuit pricing:
+
+622Mbps - 4117
+
+400Mbps - 2700 + 42.25
+
+
+fix mb -- 6.75 :: 625%
+
+
+funcion costo -:: costo fijo 	+ costo variable
+	       :: fijo		+ (util - fijo) * costo ad / samples#
+  	       :: fijo (1 - costo ad/samples) + util * costo ad / samples
+	       :: X = fijo
+	       :: costombfijo * mbpsfijo (1 - costo ad/samples) + util * costo ad / samples
+               :: (lambda*costoad) * mbpsfijo (1 - costo ad/samples) + util * costo ad / samples
+		:: siendo lambda = costombfijo / costoad
+
+
+
+
+burstable billing - sustained usage, 95th percentile.
+hi cap flex - cir agreement. sustained usage (95th percentile) - cir = variable.
+
+
+total cost: flat = flat cost
+	    burstable = sustained band cost
+	    hi cap flex = CIR cost + (sustained-CIR) * ad cost per mb
+			= 2CIR cost + ad cost per mb (sustained1 + sustained2 - 2CIR)
